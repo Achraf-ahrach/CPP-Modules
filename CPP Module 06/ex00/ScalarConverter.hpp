@@ -17,7 +17,7 @@ class ScalarConverter
         ScalarConverter(const ScalarConverter &other);
         ~ScalarConverter();
         ScalarConverter & operator = (const ScalarConverter &other);
-        static bool    isfloat(char* charPtr); // static t9der tosel lfunction bla matkriyi obg, and maymknch towsel lchi variabl li machi static !
+        static bool    isfloat(char* charPtr);
         static bool    isint(char* charPtr);
         static bool    isdouble(char* charPtr);
         static int     Determine_the_type(char *str);

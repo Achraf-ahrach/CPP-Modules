@@ -50,15 +50,24 @@ void    identify(Base* p)
 
 void    identify(Base& p)
 {
-    A *a = dynamic_cast<A*>(&p);
-    B *b = dynamic_cast<B*>(&p);
-    C *c = dynamic_cast<C*>(&p);
-    if (a)
+    try {
+        A &a = dynamic_cast<A&>(p);
         std::cout << "Reference: type of the object pointed to by p is: class A\n";
-    else if (b)
+        (void)a; 
+    } catch (...) { }
+    
+    try {
+        B  &b = dynamic_cast<B&>(p);
         std::cout << "Reference: type of the object pointed to by p is: class B\n";
-    else if (c)
-        std::cout << "Reference: type of the object pointed to by p is: class c\n";
+        (void)b;
+        
+    } catch (...) { }
+    try {
+        C &c = dynamic_cast<C&>(p);
+        std::cout << "Reference: type of the object pointed to by p is: class c\n"; 
+        (void)c;
+        
+    } catch (...) { }
 }
 
 int main()
