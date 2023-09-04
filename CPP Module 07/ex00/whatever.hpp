@@ -20,10 +20,8 @@ T       min(T A, T B)
 {
     if (A > B)
         return (B);
-    else if (A < B)
-        return (A);
     else
-        return (B);
+        return (A);
 }
 
 template <typename T>
@@ -32,8 +30,6 @@ T       max(T A, T B)
 {
     if (A > B)
         return (A);
-    else if (A < B)
-        return (B);
     else
         return (B);
 }

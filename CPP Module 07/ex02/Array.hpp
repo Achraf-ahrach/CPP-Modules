@@ -11,10 +11,9 @@ class Array
         T               *array;
         unsigned int    _size;
     public:
-        Array() : _size(0)
+        Array() : _size(0), array(0)
         {
             std::cout << "Default Constructor called: created empty Array of size 0" << std::endl;
-            array = new T[_size];
         }
         ~Array()
         {
@@ -50,28 +49,13 @@ class Array
         }
         T &operator[](unsigned int index)
         {
-            if (index >= _size || array == NULL)
+            if (index >= _size)
             {
                 std::cout << "index: " << index << std::endl;
-                throw Array::InvalidIndexException("Invalid Index Exception !");
+                throw std::out_of_range("Invalid Index Exception !");
             }
             return (array[index]);
         }
-        ///// exception
-        class InvalidIndexException : public std::exception
-        {
-            private:
-                const char *msg_error;
-            public:
-                const char* what() const throw()
-                {
-                    return (msg_error);
-                }
-                InvalidIndexException(const char *mesage)
-                {
-                    msg_error = mesage;
-                }
-        };
         unsigned int size() const
         {
             return (_size);

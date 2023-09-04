@@ -6,17 +6,17 @@
 
 template <typename T>
 
-void    function(T *element)
+void    function(T element)
 {
-    std::cout << *element;
+    std::cout << element;
 }
 
-template <typename T>
+template <typename T, typename F>
 
-void    iter(T *A, int length, void (*f)(T *element))
+void    iter(T *A, int length, F function)
 {
     for(int i = 0;i < length; i++)
-        f(&A[i]);
+        function(A[i]);
 }
 
 #endif
