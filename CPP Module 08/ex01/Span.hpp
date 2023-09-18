@@ -19,6 +19,7 @@ class Span
         void    addNumber(unsigned int number);
         int     shortestSpan() const ;
         int     longestSpan() const ;
+        void    add_range(std::vector<int> &src);
 };
 
 #endif

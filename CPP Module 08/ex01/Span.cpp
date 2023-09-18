@@ -28,10 +28,10 @@ Span::Span(const Span &other)
 
 void    Span::addNumber(unsigned int number)
 {
-    if (std::find(_vector.begin(), _vector.end(), number) == _vector.end())
+    if(_vector.size() <= N)
         _vector.push_back(number);
     else
-        throw std::runtime_error("there are already N elements stored");
+        throw std::runtime_error("addNumber: there are already N elements stored");
 }
 
 int Span::shortestSpan() const
@@ -60,4 +60,12 @@ int Span::longestSpan() const
     std::vector<int> tmp = _vector;
     std::sort(tmp.begin(), tmp.end());
     return (*(tmp.end()-1) - *tmp.begin());
+}
+
+void Span::add_range(std::vector<int> &src)
+{
+    if (_vector.size() + src.size() <= N)
+        _vector.insert(_vector.end(), src.begin(), src.end());
+    else
+        throw std::runtime_error("add_range: there are already N elements stored");
 }
