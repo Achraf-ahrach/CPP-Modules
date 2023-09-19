@@ -8,9 +8,11 @@ SRC = main.cpp Span.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
+HEADERS = Span.hpp
+
 all : $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJ) $(HEADERS)
 	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean :

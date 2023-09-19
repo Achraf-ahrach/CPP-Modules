@@ -8,9 +8,11 @@ SRC = main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
+HEADERS = MutantStack.hpp
+
 all : $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJ) $(HEADERS)
 	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean :

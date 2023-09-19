@@ -4,26 +4,27 @@
 #include <iostream>
 #include <stack>
 #include <iterator>
+#include <deque>
 
-template <class T>
+template <class T, class Container = std::deque<T> > // deque by default
 
-class MutantStack : public std::stack<T>
+class MutantStack : public std::stack<T, Container>
 {
     public:
         ~MutantStack(){}
         MutantStack(){}
-        MutantStack& operator = (MutantStack &other)
+        MutantStack& operator = (const MutantStack &other)
         {
             if (this == &other)
                 return (*this);
-            std::stack<T>::operator = (other); 
+            std::stack<T, Container>::operator = (other); 
             return (*this);
         }
-        MutantStack(MutantStack &other) : std::stack<T>(other)
+        MutantStack(const MutantStack &other) : std::stack<T, Container>(other)
         {
             *this = other;
         }
-        typedef typename std::stack<T>::container_type::iterator iterator;
+        typedef typename std::stack<T, Container>::container_type::iterator iterator;
         iterator    begin()
         {
             return (this->c.begin());

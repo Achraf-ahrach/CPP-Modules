@@ -3,31 +3,43 @@
 int main()
 {
     MutantStack<int> mstack;
-    mstack.push(5);
-    mstack.push(17);
 
-    std::cout << mstack.top() << std::endl;
+    for (int i = 5 ; i < 10; i++)
+        mstack.push(i);
 
+    MutantStack<int>::iterator Begin = mstack.begin();
+    MutantStack<int>::iterator End = mstack.end();
+
+    std::cout << "stack:  {";
+    while (Begin != End)
+    {
+        std::cout << *Begin;
+        ++Begin;
+        if (Begin != End)
+            std::cout << ',';
+    }
+    std::cout << '}' << std::endl;
+
+    std::cout << "top is: "<< mstack.top() << std::endl;
+
+    std::cout << "size = " << mstack.size() << std::endl;
+
+    std::cout << "pop : " << mstack.top() << std::endl;
     mstack.pop();
 
-    std::cout << mstack.size() << std::endl;
-
-    mstack.push(3);
-    mstack.push(5);
-    mstack.push(737);
-    //[...]
-    mstack.push(0);
+    std::cout << "size = " << mstack.size() << std::endl;
 
     MutantStack<int>::iterator it = mstack.begin();
     MutantStack<int>::iterator ite = mstack.end();
 
-    ++it;
-    --it;
+    std::cout << "stack:  {";
     while (it != ite)
     {
-        std::cout << *it << std::endl;
+        std::cout << *it;
         ++it;
+        if (it != ite)
+            std::cout << ',';
     }
-    std::stack<int> s(mstack);
+    std::cout << '}'<< std::endl;
     return 0;
 }
