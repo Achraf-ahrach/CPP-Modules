@@ -4,19 +4,16 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 CXX = c++
 
-HEADERS = easyfind.hpp
-
-SRC = main.cpp
-
-OBJ = $(SRC:.cpp=.o)
-
 all : $(NAME)
 
-$(NAME) : $(OBJ) $(HEADERS)
-	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
+$(NAME) : main.o
+	$(CXX) $(CPPFLAGS) main.o -o $(NAME)
+
+main.o: main.cpp easyfind.hpp
+	$(CXX) $(CPPFLAGS) -c $< -o $@
 
 clean :
-	@rm -f $(OBJ)
+	@rm -f main.o
 
 fclean : clean
 	@rm -f $(NAME)

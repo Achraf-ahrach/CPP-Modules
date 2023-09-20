@@ -13,8 +13,8 @@ class Span
     public:
         Span();
         ~Span();
-        Span(unsigned int N);
         Span(const Span &other);
+        Span(unsigned int N);
         Span &operator = (const Span &other);
         void    addNumber(unsigned int number);
         int     shortestSpan() const ;

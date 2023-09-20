@@ -12,8 +12,14 @@ HEADERS = Span.hpp
 
 all : $(NAME)
 
-$(NAME) : $(OBJ) $(HEADERS)
+$(NAME) : $(OBJ)
 	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
+
+./%.o: ./%.cpp ./%.hpp
+	$(CXX) $(CPPFLAGS) -c $< -o $@
+
+main.o: main.cpp $(HEADERS)
+	$(CXX) $(CPPFLAGS) -c $< -o $@
 
 clean :
 	@rm -f $(OBJ)

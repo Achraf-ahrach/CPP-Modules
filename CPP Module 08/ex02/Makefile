@@ -12,8 +12,11 @@ HEADERS = MutantStack.hpp
 
 all : $(NAME)
 
-$(NAME) : $(OBJ) $(HEADERS)
+$(NAME) : $(OBJ)
 	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
+
+main.o: $(SRC) $(HEADERS)
+	$(CXX) $(CPPFLAGS) -c $< -o $@
 
 clean :
 	@rm -f $(OBJ)

@@ -1,7 +1,5 @@
 #include "easyfind.hpp"
 
-// https://caiorss.github.io/C-Cpp-Notes/STL%20Iterators%20and%20Algorithms.html
-
 int main()
 {
     std::vector<int> arr;

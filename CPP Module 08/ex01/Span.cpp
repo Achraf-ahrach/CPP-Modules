@@ -28,6 +28,7 @@ Span::Span(const Span &other)
 
 void    Span::addNumber(unsigned int number)
 {
+    
     if(_vector.size() <= N)
         _vector.push_back(number);
     else
