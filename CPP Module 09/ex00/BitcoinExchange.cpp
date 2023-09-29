@@ -18,8 +18,9 @@ int no_valid_second(std::string &str)
             std::cerr << RED "Error: not a positive number." << RESET << std::endl;
             return (0);
         }
-        else if (!std::isdigit(str[i]))
+        else if (!std::isdigit(str[i]) && str[i] != '.')
         {
+            std::cout << "==> " << str[i] << '\n';
             std::cerr << RED "Error: bad input => " << str << RESET << std::endl;
             return (0);
         }
@@ -77,7 +78,7 @@ int no_valid_first(std::string &str)
     return (1);
 }
 
-void    Bitcoin::read_database()
+void    read_database(std::map<std::string, float> &_map)
 {
     std::string bufer;
     std::ifstream inputFile_database("data.csv");
@@ -95,7 +96,7 @@ void    Bitcoin::read_database()
     }
 }
 
-void    Bitcoin::bitcoin_price(std::ifstream &inputFile)
+void    bitcoin_price(std::map<std::string, float> &_map, std::ifstream &inputFile)
 {
     std::string bufer;
 

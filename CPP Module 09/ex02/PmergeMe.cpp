@@ -81,7 +81,6 @@ std::vector<int>    SortVector(std::vector<int> _vector)
         numbers_is_sort.insert(it, _vector[index]);
     }
 
-
     if (!last_one.empty())
     {
         it = std::upper_bound(numbers_is_sort.begin(), numbers_is_sort.end(), last_one[0]);
@@ -123,7 +122,6 @@ std::deque<int>    SortDeque(std::deque<int> _deque)
         numbers_is_sort.insert(it, _deque[index]);
     }
 
-
     if (!last_one.empty())
     {
         it = std::upper_bound(numbers_is_sort.begin(), numbers_is_sort.end(), last_one[0]);
@@ -163,7 +161,7 @@ void    PmergeMe(char **av)
         std::cout << ' ' << *it;
     std::cout << std::endl;
     std::cout << "Time to process a range of " << _vector.size() << " elements with std::vector : ";
-    std::cout << time_vector << " s" << std::endl;
+    std::cout << std::fixed << std::setprecision(5) << time_vector << " s" << std::endl;
     std::cout << "Time to process a range of " << _deque.size() << " elements with std::deque : ";
-    std::cout << time_deque << " s" << std::endl;
+    std::cout << std::fixed << std::setprecision(5) << time_deque << " s" << std::endl;
 }

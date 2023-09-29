@@ -9,12 +9,7 @@
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
 
-class Bitcoin
-{
-    private:
-        std::map<std::string, float>    _map;
-    public:
-        void    read_database();
-        void    bitcoin_price(std::ifstream &inputFile);
-};
+void    read_database(std::map<std::string, float> &_map);
+void    bitcoin_price(std::map<std::string, float> &_map, std::ifstream &inputFile);
+
 #endif

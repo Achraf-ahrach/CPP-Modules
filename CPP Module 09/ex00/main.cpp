@@ -13,7 +13,7 @@ int main(int ac, char **av)
         std::cerr << RED "Error: could not open file <" << av[1] << ">" RESET << std::endl;
         return (0);
     }
-    Bitcoin bitcoin;
-    bitcoin.read_database();
-    bitcoin.bitcoin_price(inputFile);
+    std::map<std::string, float>    _map;
+    read_database(_map);
+    bitcoin_price(_map, inputFile);
 }
