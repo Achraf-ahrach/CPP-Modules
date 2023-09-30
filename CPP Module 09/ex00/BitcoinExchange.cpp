@@ -13,14 +13,15 @@ int no_valid_second(std::string &str)
     {
         if (i != 0 && str[i] == '.')
             cont++;
-        if (str[0] == '-')
+        else if (str[0] == '-')
         {
             std::cerr << RED "Error: not a positive number." << RESET << std::endl;
             return (0);
         }
-        else if (!std::isdigit(str[i]) && str[i] != '.')
+        else if (i == 0 && str[i] == '+')
+            continue;
+        else if (!std::isdigit(str[i]))
         {
-            std::cout << "==> " << str[i] << '\n';
             std::cerr << RED "Error: bad input => " << str << RESET << std::endl;
             return (0);
         }

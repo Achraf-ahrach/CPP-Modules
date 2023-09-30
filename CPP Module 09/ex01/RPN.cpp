@@ -26,7 +26,9 @@ void    Reverse_Polish_Notation(char *str)
 
     for (int i = 0; str[i]; i++)
     {
-        if (i != 0 && !str[i + 1] && str[i + 1] != ' ' && str[i - 1] != ' ')
+        if (str[i] == ' ')
+            continue;
+        else if (i != 0 && !str[i + 1] && str[i + 1] != ' ' && str[i - 1] != ' ')
         {
             std::cout << "Error:" << std::endl;
             return ;
@@ -35,9 +37,7 @@ void    Reverse_Polish_Notation(char *str)
         {
             _stack.push(str[i] - 48);
         }
-        else if (str[i] == ' ')
-            continue;
-        else if (str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/')
+        else if ((str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/') && (str[i + 1] == ' ' || !str[i + 1]))
         {
             int top_1;
             int top_2;
